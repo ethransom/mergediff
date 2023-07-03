@@ -53,6 +53,13 @@ fn mergediff(new: File, old: File, creates: File, updates: File, deletes: File) 
         writeln!(creates, "{}", line.unwrap())?;
     }
 
+    // Flushing the buffers b/c buffers will automatically flush when they go out-of-scope,
+    // however any errors that happen during flushing will silently fail.  The below code
+    // lets us capture those errors.
+    creates.flush()?;
+    updates.flush()?;
+    deletes.flush()?;
+
     Ok(())
 }
 
