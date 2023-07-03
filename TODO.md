@@ -1,0 +1,4 @@
+- [ ] Add benchmarking (against `diff`), maybe get faster?
+- [ ] Benchmark/evaluate against `comm`
+- [ ] Add better output semantics
+- [ ] Add help message
